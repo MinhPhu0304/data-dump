@@ -36,7 +36,7 @@ jobs:
           cd ../
           rm -rf at-dumper
           git status
-          COMMIT_COUNT=$(git rev-list HEAD...origin/master --count)
+          COMMIT_COUNT=$(git rev-list HEAD...origin/main --count)
           if [ -z "$(git diff HEAD^ HEAD)" ]; then
             echo "No new changes found."
             exit 0
