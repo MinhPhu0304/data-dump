@@ -19,10 +19,11 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v2
 
-      - name: Clone other repository
-        run: |
-          git config --global url.https://github.com/.insteadOf git://github.com/
-          git clone https://github.com/MinhPhu0304/at-dumper.git
+      - name: Checkout hacky private tools
+        uses: actions/checkout@v3
+        with:
+          repository: MinhPhu0304/at-dumper
+          token: ${{ secrets.GH_PAT }} # `GH_PAT` is a secret that contains your PAT
 
       - name: Run all the things
         run: |
