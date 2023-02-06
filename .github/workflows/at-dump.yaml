@@ -34,10 +34,18 @@ jobs:
           git config --global user.name "GitHub Actions"
           go run main.go -file=../at-roadworks.json
           cd ../
+          rm -rf at-dumper
           git status
-          git add at-roadworks.json
-          git commit -m "Update at roadworks.json"
-          git push origin main
+          COMMIT_COUNT=$(git rev-list HEAD...origin/master --count)
+          if [ -z "$(git diff HEAD^ HEAD)" ]; then
+            echo "No new changes found."
+            exit 0
+          else
+
+            git add at-roadworks.json
+            git commit -m "Update at roadworks.json"
+            git push origin main
+          fi
         env:
           GIT_AUTHOR_NAME: GitHub Actions
           GIT_AUTHOR_EMAIL: actions@github.com
