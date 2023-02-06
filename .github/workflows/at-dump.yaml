@@ -9,7 +9,7 @@ on:
   #     - main
 
 env:
-  MY_SECRET: ${{ secrets.AT_KEY }}
+  AT_KEY: ${{ secrets.AT_KEY }}
 
 jobs:
   clone:
@@ -42,5 +42,6 @@ jobs:
           GIT_AUTHOR_EMAIL: actions@github.com
           GIT_COMMITTER_NAME: GitHub Actions
           GIT_COMMITTER_EMAIL: actions@github.com
+          AT_KEY: ${{ secrets.AT_KEY }}
           GIT_SSH_COMMAND: "ssh -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no"
 
