@@ -24,6 +24,7 @@ jobs:
         with:
           repository: MinhPhu0304/at-dumper
           token: ${{ secrets.GH_PAT }} # `GH_PAT` is a secret that contains your PAT
+          path: at-dumper
 
       - name: Run all the things
         run: |
