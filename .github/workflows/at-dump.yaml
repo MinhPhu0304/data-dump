@@ -21,7 +21,7 @@ jobs:
 
       - name: Clone other repository
         run: |
-          git clone https://github.com/MinhPhu0304/at-dumper.git
+          git clone git@github.MinhPhu0304/at-dumper.git
 
       - name: Run all the things
         run: |
