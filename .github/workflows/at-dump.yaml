@@ -1,0 +1,28 @@
+name: commafeed monthly docker build
+on:
+  workflow_dispatch: 
+  schedule:
+    # * is a special character in YAML so you have to quote this string
+    - cron: "0 12 1 1-12 *"
+  # push:
+  #   branches:
+  #     - main
+
+jobs:
+  clone:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v2
+
+    - name: Clone other repository
+      run: |
+        git clone https://github.com/MinhPhu0304/at-dumper.git
+
+    - name: Run all the things
+      run: |
+        cd at-dumper
+        go run main.go -file=../at-roadworks.json
+        git commit -m "Update at roadworks.json"
+        git push
