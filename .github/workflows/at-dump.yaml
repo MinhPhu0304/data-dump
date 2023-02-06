@@ -1,4 +1,4 @@
-name: commafeed monthly docker build
+name: Push it to the moon we goo!!!!!!
 on:
   workflow_dispatch: 
   schedule:
